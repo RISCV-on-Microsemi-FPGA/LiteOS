@@ -1,16 +1,15 @@
 /*******************************************************************************
- * (c) Copyright 2016-2017 Microsemi SoC Products Group.  All rights reserved.
+ * (c) Copyright 2016-2018 Microsemi SoC Products Group.  All rights reserved.
  *
- * @file riscv_CoreplexE31.h
+ * @file riscv_plic.h
  * @author Microsemi SoC Products Group
- * @brief RISC-V soft processor CoreRISCV_AXI4 PLIC and PRCI access data
- *        structures and functions.
+ * @brief Mi-V soft processor PLIC and PRCI access data structures and functions.
  *
- * SVN $Revision: 9187 $
- * SVN $Date: 2017-05-13 13:31:28 +0530 (Sat, 13 May 2017) $
+ * SVN $Revision: 9838 $
+ * SVN $Date: 2018-03-19 19:22:54 +0530 (Mon, 19 Mar 2018) $
  */
-#ifndef RISCV_COREPLEXE31_H
-#define RISCV_COREPLEXE31_H
+#ifndef RISCV_PLIC_H
+#define RISCV_PLIC_H
 
 #include <stdint.h>
 
@@ -247,4 +246,4 @@ static inline void clear_soft_interrupt()
 }
 #endif
 
-#endif  /* RISCV_COREPLEXE31_H */
+#endif  /* RISCV_PLIC_H */

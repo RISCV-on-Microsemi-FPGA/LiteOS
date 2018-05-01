@@ -1,12 +1,19 @@
-## Microsemi RISC-V port for Huawei LiteOS
+## Huawei LiteOS port on Mi-V soft processors
 
 ### LiteOS
 The LiteOS is available at: [LiteOS_Kernel](https://github.com/LITEOS/LiteOS_Kernel)
-
     
 ### Test Platform and FPGA design:
+This project is tested on foloowing hardware platforms:
+
+RISCV-Creative-Board
+[IGLOO2 Creative board Ni-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/Programming_The_Target_Device/PROC_SUBSYSTEM_MIV_RV32IMA_BaseDesign)
+
+PolarFire-Eval-Kit
+[SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/PolarFire-Eval-Kit/Programming_The_Target_Device\MIV_RV32IMA_L1_AHB_BaseDesign)
+
 M2S150-Advanced-Dev-Kit
-[SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/M2S150-Advanced-Dev-Kit/blob/master/Programming_The_Target_Device/PROC_SUBSYSTEM_BaseDesign)   
+[SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/M2S150-Advanced-Dev-Kit/Programming_The_Target_Device/PROC_SUBSYSTEM_BaseDesign)
 
 ### LiteOS Port Test results:
     LOS_BoadExampleEntry    -- executes on board.
@@ -56,6 +63,11 @@ The preprocessor LOS_M2S150_RV32 must be defined for this project.
         kernel\link\gcc\los_builddef.h
         example\include\los_demo_debug.h
         example\api\los_inspect_entry.c
+
+### LiteOS Configurations
+You must configure the LiteOS as per your applications need. Please read and modify kernel\config\los_config.h
+E.g. You must set OS_SYS_CLOCK parameter in los_config.h according to the hardware platform 
+design that you are using. The RISC-V creative board uses 66Mhz clock.
 
 ### Microsemi SoftConsole Toolchain:
 To know more please refer: [SoftConsole](https://github.com/RISCV-on-Microsemi-FPGA/SoftConsole)

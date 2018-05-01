@@ -1,12 +1,12 @@
 /*******************************************************************************
- * (c) Copyright 2016-2017 Microsemi SoC Products Group.  All rights reserved.
+ * (c) Copyright 2016-2018 Microsemi SoC Products Group.  All rights reserved.
  *
  * @file syscall.c
  * @author Microsemi SoC Products Group
  * @brief Stubs for system calls.
  *
- * SVN $Revision: 9572 $
- * SVN $Date: 2017-11-14 12:42:09 +0530 (Tue, 14 Nov 2017) $
+ * SVN $Revision: 9661 $
+ * SVN $Date: 2018-01-15 16:13:33 +0530 (Mon, 15 Jan 2018) $
  */
 #include <stdint.h>
 #include <stdlib.h>
@@ -50,9 +50,6 @@ int errno;
 
 char *__env[1] = { 0 };
 char **environ = __env;
-
-volatile uint64_t tohost __attribute__((aligned(64)));
-volatile uint64_t fromhost __attribute__((aligned(64)));
 
 void write_hex(int fd, uint32_t hex)
 {

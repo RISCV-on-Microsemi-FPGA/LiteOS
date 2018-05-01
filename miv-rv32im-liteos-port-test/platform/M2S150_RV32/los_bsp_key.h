@@ -1,7 +1,10 @@
 #ifndef _LOS_BSP_KEY_H
 #define _LOS_BSP_KEY_H
 
-#define LOS_KEY_PRESS   0
+/*#define LOS_KEY_PRESS   0 for 150 kit
+  #define LOS_KEY_PRESS   1 for Yellow board
+ * */
+#define LOS_KEY_PRESS   1
 
 #ifdef LOS_M2S150_RV32
 
@@ -10,7 +13,9 @@
 #define SWITCH3			GPIO_1
 #define SWITCH4			GPIO_3
 
-#define USER_KEY        SWITCH2		//this used by los_inspect_entry.c
+/*using SWITCH2 on 150 kit for SW2
+  using SWITCH1 on Yellow board for SW1*/
+#define USER_KEY        SWITCH1		//this used by los_inspect_entry.c
 
 #endif
 

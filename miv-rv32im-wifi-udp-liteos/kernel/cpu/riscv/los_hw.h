@@ -40,7 +40,7 @@
 #define _LOS_HW_H
 
 #include "los_base.h"
-#include "riscv_CoreplexE31.h"
+#include "riscv_plic.h"
 #include "riscv_hal.h"
 #include "hal.h"
 

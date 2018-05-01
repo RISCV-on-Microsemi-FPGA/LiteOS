@@ -9,7 +9,7 @@
 #include "hal.h"
 #include "hal_assert.h"
 #include "core_i2c.h"
-#include "riscv_CoreplexE31.h"
+#include "riscv_plic.h"
 
 extern i2c_instance_t g_core_i2c;
 

@@ -31,7 +31,9 @@
  * Soft-processor clock definition
  * This is the only clock brought over from the CoreRISCV_AXI4 Libero design.
  */
-#define SYS_CLK_FREQ                    83000000UL
+#ifndef SYS_CLK_FREQ
+#define SYS_CLK_FREQ                    66000000UL
+#endif
 
 /***************************************************************************//**
  * Non-memory Peripheral base addresses
@@ -77,7 +79,7 @@
  * This value is calculated using the following equation:
  *      BAUD_VALUE = (CLOCK / (16 * BAUD_RATE)) - 1
  *****************************************************************************/
-#define BAUD_VALUE_115200   44
+#define BAUD_VALUE_115200   (SYS_CLK_FREQ / (16 * 115200)) - 1
 
 /***************************************************************************//**
  * User edit section- Edit sections below if required
