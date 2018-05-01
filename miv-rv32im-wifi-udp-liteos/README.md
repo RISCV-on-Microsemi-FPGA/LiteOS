@@ -5,7 +5,7 @@ The LiteOS is available at: [LiteOS_Kernel](https://github.com/LITEOS/LiteOS_Ker
     
 ### Test Platform and FPGA design:
 RISC-V-Creative-Board
-[RISCV-Creative-Board Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/tree/master/Programming_The_Target_Device)   
+- [RISCV-Creative-Board Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/tree/master/Programming_The_Target_Device)   
 
 ### How to run the LiteOS RISC-V port:
 Open SoftConsole IDE and import the project miv-rv32im-wifi-udp-liteos into SoftConsole. 
