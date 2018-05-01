@@ -2,7 +2,6 @@
 
 ### LiteOS
 The LiteOS is available at: [LiteOS_Kernel](https://github.com/LITEOS/LiteOS_Kernel)
-
     
 ### Test Platform and FPGA design:
 RISC-V-Creative-Board
@@ -10,7 +9,7 @@ RISC-V-Creative-Board
 
 ### How to run the LiteOS RISC-V port:
 Open SoftConsole IDE and import the project miv-rv32im-wifi-udp-liteos into SoftConsole. 
-Buld the project and DownLoad it from SoftConsole to RISC-V-Creative-Board using FlashPro Debugger.
+Build the project and DownLoad it from SoftConsole to RISC-V-Creative-Board using FlashPro Debugger.
 
 The miv-rv32im-wifi-udp-liteos is a self contained project where only those LiteOS components 
 which are related to RISC-V port are part of the project.
@@ -25,8 +24,8 @@ TeraTerm or PuTTY configured as follows:
         - no parity
         - no flow control
     
-The platform/M2S150_RV32/hw_platform.h file contains the design related information
-that is required for this project. If you update the design, the hw_platform.h 
+The platform/M2S150_RV32/hw_platform.h file contains the FPGA design related information
+that is required for this project. If you update the FPGA design, the hw_platform.h 
 must be updated accordingly.
     
 This project implements the UDP client functionality. The UDP client connects to the network
@@ -35,12 +34,14 @@ reads the live temperature data from the PmodTMP2 sensor using it's I2C interfac
 The temperature data is sent over the network as UDP packets. The UDP server on the 
 network can receive and display the temperature data.
 
-The WiFi3 click must be conneceted on the MicroBus connector on the creative board.
-The PmodTMP2 sensor must be conneceted on the MicroBus connector on the creative board.
+The [WiFi3 click](https://www.mikroe.com/wifi-3-click) must be connected on the MicroBus connector on the creative board.
+The [PmodTMP2 sensor](https://store.digilentinc.com/pmod-tmp2-temperature-sensor) must be connected on the MicroBus connector on the creative board.
 
-### Microsemi SoftConsole Toolchain:
+The RISC-V creative board design uses 66Mhz processor clock.
+
+### Microsemi SoftConsole Tool-chain:
 To know more please refer: [SoftConsole](https://github.com/RISCV-on-Microsemi-FPGA/SoftConsole)
 
-### Documentation for Microsemi RISC-V processor, SoftConsole toochain, Debug Tools, FPGA design etc.
+### Documentation for Microsemi RISC-V processor, SoftConsole, Debug Tools, FPGA design etc.
 To know more please refer: [Documentation](https://github.com/RISCV-on-Microsemi-FPGA/Documentation)
     
