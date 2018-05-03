@@ -7,13 +7,13 @@ The LiteOS is available at: [LiteOS_Kernel](https://github.com/LITEOS/LiteOS_Ker
 This project is tested on following hardware platforms:
 
 RISCV-Creative-Board
-- [RISC-V Creative board Mi-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/Programming_The_Target_Device/PROC_SUBSYSTEM_MIV_RV32IMA_BaseDesign)
+- [RISC-V Creative board Mi-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/tree/master/Programming_The_Target_Device/PROC_SUBSYSTEM_MIV_RV32IMA_BaseDesign)
 
 PolarFire-Eval-Kit
-- [SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/PolarFire-Eval-Kit/Programming_The_Target_Device\MIV_RV32IMA_L1_AHB_BaseDesign)
+- [PolarFire-Eval-Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/PolarFire-Eval-Kit/tree/master/Programming_The_Target_Device/MIV_RV32IMA_L1_AHB_BaseDesign)
 
-M2S150-Advanced-Dev-Kit
-- [SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/M2S150-Advanced-Dev-Kit/Programming_The_Target_Device/PROC_SUBSYSTEM_BaseDesign)
+SmartFusion2-Advanced-Dev-Kit
+- [SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/SmartFusion2-Advanced-Dev-Kit/tree/master/Programming_The_Target_Device/PROC_SUBSYSTEM_BaseDesign)
 
 ### LiteOS Port Test results:
     LOS_BoadExampleEntry    -- executes on board.
@@ -69,7 +69,7 @@ You must configure the LiteOS as per your applications need. Please read and mod
 E.g. You must set OS_SYS_CLOCK parameter in los_config.h according to the hardware platform 
 design that you are using. 
 
-The RISC-V creative board design uses 66Mhz processor clock. The PolarFire Eval Kit design uses 50Mhz processor clock. The SmartFusion2 Adv. Developement kit design uses 83Mhz processor clock.
+The RISC-V creative board design uses 66Mhz processor clock. The PolarFire Eval Kit design uses 50Mhz processor clock. The SmartFusion2 Adv. Development kit design uses 83Mhz processor clock.
 
 ### Microsemi SoftConsole Toolchain:
 To know more please refer: [SoftConsole](https://github.com/RISCV-on-Microsemi-FPGA/SoftConsole)
