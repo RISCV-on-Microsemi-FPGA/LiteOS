@@ -1,20 +1,19 @@
 /*******************************************************************************
- * (c) Copyright 2016-2017 Microsemi SoC Products Group.  All rights reserved.
+ * (c) Copyright 2016-2018 Microsemi SoC Products Group.  All rights reserved.
  *
  * @file entry.S
  * @author Microsemi SoC Products Group
- * @brief RISC-V soft processor CoreRISCV_AXI4 vectors, trap handling and
- *        startup code.
+ * @brief Mi-V soft processor vectors, trap handling and startup code.
  *
- * SVN $Revision: 9085 $
- * SVN $Date: 2017-04-28 14:29:14 +0530 (Fri, 28 Apr 2017) $
+ * SVN $Revision: 9661 $
+ * SVN $Date: 2018-01-15 16:13:33 +0530 (Mon, 15 Jan 2018) $
  */
 #ifndef ENTRY_S
 #define ENTRY_S
 
 #include "encoding.h"
 
-#ifdef __riscv64
+#if __riscv_xlen == 64
 # define LREG ld
 # define SREG sd
 # define REGBYTES 8
@@ -26,6 +25,7 @@
 
   .section      .text.entry
   .globl _start
+
 _start:
   j handle_reset
 
@@ -39,12 +39,31 @@ handle_reset:
   la t0, trap_entry
   csrw mtvec, t0
   csrwi mstatus, 0
-  csrwi mideleg, 0
-  csrwi medeleg, 0
   csrwi mie, 0
 
+/*Flaoting point support configuration*/
+
+#ifdef __riscv_flen
+  csrr t0, mstatus
+  lui t1, 0xffffa
+  addi t1, t1, -1
+  and t0, t0, t1
+  lui t1, 0x4
+  or t1, t0, t1
+  csrw mstatus, t1
+
+  lui t0, 0x0
+  fscsr t0
+#endif
+.option push
+
+# Ensure the instruction is not optimized, since gp is not yet set
+
+.option norelax
   # initialize global pointer
-  la gp, _gp
+  la gp, __global_pointer$
+
+.option pop
 
   # initialize stack pointer
   la sp, __stack_top

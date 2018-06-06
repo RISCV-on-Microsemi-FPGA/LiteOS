@@ -1,28 +1,28 @@
 /*******************************************************************************
- * (c) Copyright 2016-2017 Microsemi Corporation.  All rights reserved.
+ * (c) Copyright 2016-2018 Microsemi Corporation.  All rights reserved.
  *
  * Platform definitions
  * Version based on requirements of RISCV-HAL
  *
- * SVN $Revision: 9030 $
- * SVN $Date: 2017-04-23 15:17:47 +0530 (Sun, 23 Apr 2017) $
+ * SVN $Revision: 9661 $
+ * SVN $Date: 2018-01-15 16:13:33 +0530 (Mon, 15 Jan 2018) $
  */
  /*=========================================================================*//**
   @mainpage Sample file detailing how hw_platform.h should be constructed for 
-    the CoreRISCV_AXI4
+    the Mi-V processors.
 
     @section intro_sec Introduction
-    The  hw_platform.h is to be located in the project root directory.
-    Currently this file must be hand crafted when using the CoreRISCV_AXI4.
+    The hw_platform.h is to be located in the project root directory.
+    Currently this file must be hand crafted when using the Mi-V Soft Processor.
     
     You can use this file as sample.
     Rename this file from sample_hw_platform.h to hw_platform.h and store it in
     the root folder of your project. Then customize it per your HW design.
 
     @section driver_configuration Project configuration Instructions
-    1. Change SYS_CLK_FREQ define to frequency of CoreRISCV_AXI4 clock
+    1. Change SYS_CLK_FREQ define to frequency of Mi-V Soft processor clock
     2  Add all other core BASE addresses
-    3. Add peripheral Core Interrupt to CoreRISCV_AXI4 interrupt mappings
+    3. Add peripheral Core Interrupt to Mi-V Soft processor interrupt mappings
     4. Define MSCC_STDIO_UART_BASE_ADDR if you want a CoreUARTapb mapped to STDIO
 *//*=========================================================================*/
 
@@ -31,7 +31,7 @@
 
 /***************************************************************************//**
  * Soft-processor clock definition
- * This is the only clock brought over from the CoreRISCV_AXI4 Libero design.
+ * This is the only clock brought over from the Mi-V Soft processor Libero design.
  */
 #define SYS_CLK_FREQ                    83000000UL
 
@@ -41,7 +41,6 @@
  * <corename>_<instance>_BASE_ADDR
  */
 #define COREUARTAPB0_BASE_ADDR          0x70001000UL
-#define COREGPIO_BASE_ADDR              0x70002000UL
 #define COREGPIO_IN_BASE_ADDR           0x70002000UL
 #define CORETIMER0_BASE_ADDR            0x70003000UL
 #define CORETIMER1_BASE_ADDR            0x70004000UL
@@ -50,10 +49,11 @@
 #define CORE16550_BASE_ADDR             0x70007000UL
 
 /***************************************************************************//**
- * Peripheral Interrupts are mapped to the corresponding CoreRISCV_AXI4 interrupt
- * from the Libero design.
- * There can be up to 31 external interrupts (IRQ[30:0] pins) on the CoreRISCV_AXI4
- * The CoreRISCV_AXI4 external interrupts are defined in the riscv_CoreplexE31.h
+ * Peripheral Interrupts are mapped to the corresponding Mi-V Soft processor
+ * interrupt from the Libero design.
+ * There can be up to 31 external interrupts (IRQ[30:0] pins) on the Mi-V Soft
+ * processor.The Mi-V Soft processor external interrupts are defined in the
+ * riscv_plic.h
  * These are of the form
  * typedef enum
 {
@@ -80,7 +80,7 @@
  * This value is calculated using the following equation:
  *      BAUD_VALUE = (CLOCK / (16 * BAUD_RATE)) - 1
  *****************************************************************************/
-#define BAUD_VALUE_115200   44
+#define BAUD_VALUE_115200               (SYS_CLK_FREQ / (16 * 115200)) - 1
 
 /***************************************************************************//**
  * User edit section- Edit sections below if required

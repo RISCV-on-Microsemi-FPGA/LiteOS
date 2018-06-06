@@ -1,16 +1,16 @@
 /*******************************************************************************
- * (c) Copyright 2016-2017 Microsemi SoC Products Group.  All rights reserved.
+ * (c) Copyright 2016-2018 Microsemi SoC Products Group.  All rights reserved.
  * 
  * file name : microsemi-riscv-ram.ld
- * RISC-V soft processor linker script for creating a SoftConsole downloadable
+ * Mi-V soft processor linker script for creating a SoftConsole downloadable
  * debug image executing in SRAM.
  * 
- * This linker script assumes that the SRAM is connected at on the RISC-V soft
+ * This linker script assumes that the SRAM is connected at on the Mi-V soft
  * processor memory space. The start address and size of the memory space must
  * be correct as per the Libero design.
  *
- * SVN $Revision: 9187 $
- * SVN $Date: 2017-05-13 13:31:28 +0530 (Sat, 13 May 2017) $
+ * SVN $Revision: 9661 $
+ * SVN $Date: 2018-01-15 16:13:33 +0530 (Mon, 15 Jan 2018) $
  */
  
 OUTPUT_ARCH( "riscv" )
@@ -31,7 +31,7 @@ SECTIONS
 {
   .text : ALIGN(0x10)
   {
-    KEEP (*(SORT_NONE(.text.entry))) 
+    KEEP (*(SORT_NONE(.text.entry)))   
     . = ALIGN(0x10);
     *(.text .text.* .gnu.linkonce.t.*)
     *(.plt)
@@ -74,7 +74,7 @@ SECTIONS
   {
     __sdata_load = LOADADDR(.sdata);
     __sdata_start = .; 
-    _gp = . + 0x800;
+    PROVIDE( __global_pointer$ = . + 0x800);
     *(.srodata.cst16) *(.srodata.cst8) *(.srodata.cst4) *(.srodata.cst2)
     *(.srodata*)
     *(.sdata .sdata.* .gnu.linkonce.s.*)

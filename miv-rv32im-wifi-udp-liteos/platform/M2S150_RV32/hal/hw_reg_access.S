@@ -1,13 +1,13 @@
 /***************************************************************************//**
- * (c) Copyright 2007-2017 Microsemi SoC Products Group. All rights reserved.
+ * (c) Copyright 2007-2018 Microsemi SoC Products Group. All rights reserved.
  *
  * Hardware registers access functions.
  * The implementation of these function is platform and toolchain specific.
  * The functions declared here are implemented using assembler as part of the
  * processor/toolchain specific HAL.
  *
- * SVN $Revision: 9490 $
- * SVN $Date: 2017-10-04 10:08:47 +0100 (Wed, 04 Oct 2017) $
+ * SVN $Revision: 9661 $
+ * SVN $Date: 2018-01-15 16:13:33 +0530 (Mon, 15 Jan 2018) $
  */
 
 .section .text
@@ -44,7 +44,7 @@ HW_set_32bit_reg:
  * @return          32 bits value read from the peripheral register.
  */
 HW_get_32bit_reg:
-    lw a0, 0x0(a0)
+    lw a0, 0(a0)
     ret
 
 /***************************************************************************//**
@@ -60,12 +60,12 @@ HW_set_32bit_reg_field:
     mv t3, a3
     sll t3, t3, a1
     and  t3, t3, a2
-    lw t1, 0x0(a0)
+    lw t1, 0(a0)
     mv t2, a2
     not t2, t2
     and t1, t1, t2
     or t1, t1, t3
-    sw t1, 0x0(a0)
+    sw t1, 0(a0)
     ret
 
 /***************************************************************************//**
@@ -80,7 +80,7 @@ HW_set_32bit_reg_field:
  *                  as parameter.
  */
 HW_get_32bit_reg_field:
-    lw a0, 0x0(a0)
+    lw a0, 0(a0)
     and a0, a0, a2
     srl a0, a0, a1
     ret
@@ -93,8 +93,8 @@ HW_get_32bit_reg_field:
  * a1:   uint_fast16_t value
  */
 HW_set_16bit_reg:
-    sh a1, 0x0(a0)
-	ret
+    sh a1, 0(a0)
+    ret
 
 /***************************************************************************//**
  * HW_get_16bit_reg is used to read the content of a 16 bits wide peripheral
@@ -104,8 +104,8 @@ HW_set_16bit_reg:
  * @return          16 bits value read from the peripheral register.
  */
 HW_get_16bit_reg:
-	lh a0, (a0)
-	ret
+    lh a0, (a0)
+    ret
 
 /***************************************************************************//**
  * HW_set_16bit_reg_field is used to set the content of a field in a 16 bits
@@ -121,12 +121,12 @@ HW_set_16bit_reg_field:
     mv t3, a3
     sll t3, t3, a1
     and  t3, t3, a2
-    lh t1, 0x0(a0)
+    lh t1, 0(a0)
     mv t2, a2
     not t2, t2
     and t1, t1, t2
     or t1, t1, t3
-    sh t1, 0x0(a0)
+    sh t1, 0(a0)
     ret
 
 /***************************************************************************//**
@@ -141,7 +141,7 @@ HW_set_16bit_reg_field:
  *                  as parameter.
  */
 HW_get_16bit_reg_field:
-	lh a0, 0x0(a0)
+    lh a0, 0(a0)
     and a0, a0, a2
     srl a0, a0, a1
     ret
@@ -154,7 +154,7 @@ HW_get_16bit_reg_field:
  * a1:   uint_fast8_t value
  */
 HW_set_8bit_reg:
-    sb a1, 0x0(a0)
+    sb a1, 0(a0)
     ret
 
 /***************************************************************************//**
@@ -165,8 +165,8 @@ HW_set_8bit_reg:
  * @return          8 bits value read from the peripheral register.
  */
 HW_get_8bit_reg:
-    lb a0, 0x0(a0)
-	ret
+    lb a0, 0(a0)
+    ret
 
 /***************************************************************************//**
  * HW_set_8bit_reg_field is used to set the content of a field in a 8 bits
@@ -181,12 +181,12 @@ HW_set_8bit_reg_field:
     mv t3, a3
     sll t3, t3, a1
     and  t3, t3, a2
-    lb t1, 0x0(a0)
+    lb t1, 0(a0)
     mv t2, a2
     not t2, t2
     and t1, t1, t2
     or t1, t1, t3
-    sb t1, 0x0(a0)
+    sb t1, 0(a0)
     ret
 
 /***************************************************************************//**
@@ -201,9 +201,9 @@ HW_set_8bit_reg_field:
  *                  as parameter.
  */
 HW_get_8bit_reg_field:
-    lb a0, 0x0(a0)
+    lb a0, 0(a0)
     and a0, a0, a2
     srl a0, a0, a1
-	ret
+    ret
 
 .end
