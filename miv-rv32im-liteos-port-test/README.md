@@ -10,10 +10,10 @@ RISCV-Creative-Board
 - [RISC-V Creative board Mi-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/RISC-V-Creative-Board/tree/master/Programming_The_Target_Device/PROC_SUBSYSTEM_MIV_RV32IMA_BaseDesign)
 
 PolarFire-Eval-Kit
-- [PolarFire-Eval-Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/PolarFire-Eval-Kit/tree/master/Programming_The_Target_Device/MIV_RV32IMA_L1_AHB_BaseDesign)
+- [PolarFire Eval Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/PolarFire-Eval-Kit/tree/master/Programming_The_Target_Device/PF_MIV_RV32IMA_L1_AHB_BaseDesign)
 
 SmartFusion2-Advanced-Dev-Kit
-- [SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/SmartFusion2-Advanced-Dev-Kit/tree/master/Programming_The_Target_Device/PROC_SUBSYSTEM_BaseDesign)
+- [SmartFusion2 Advanced Development Kit RISC-V Sample Design](https://github.com/RISCV-on-Microsemi-FPGA/SmartFusion2-Advanced-Dev-Kit/tree/master/Programming_The_Target_Device/PROC_SUBSYSTEM_MIV_RV32IMA_BaseDesign)
 
 ### LiteOS Port Test results:
     LOS_BoadExampleEntry    -- executes on board.
@@ -30,8 +30,8 @@ SmartFusion2-Advanced-Dev-Kit
         LOS_INSPECT_DMEM
 
 ### How to run the LiteOS RISC-V port:
-Open SoftConsole IDE and import the project riscv-liteos-port into SoftConsole. 
-Build the project and DownLoad it from SoftConsole to M2S150-Advanced-Dev-Kit using FlashPro Debugger.
+Open SoftConsole IDE and import the project miv-rv32im-liteos-port-test into SoftConsole. 
+Build the project and DownLoad it from SoftConsole to SmartFusion2-Advanced-Dev-Kit using FlashPro Debugger.
 
 The miv-rv32im-liteos-port-test is a self contained project where only those LiteOS components 
 which are related to RISC-V port are part of the project.
@@ -50,13 +50,12 @@ The platform/M2S150_RV32/hw_platform.h file contains the FPGA design related inf
 that is required for this project. If you update the FPGA design, the hw_platform.h 
 must be updated accordingly.
     
-The preprocessor LOS_M2S150_RV32 must be defined for this project.
+The preprocessor macro LOS_M2S150_RV32 must be defined for this project.
      
 ### Microsemi RISC-V Port:
     Folders Added:
         \kernel\cpu\riscv
         \platform\M2S150_RV32
-        \projects\M2S150_RV32_SoftConsole
 
     Files Updated:
         kernel\config\los_config.h
