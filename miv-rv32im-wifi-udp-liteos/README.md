@@ -9,7 +9,7 @@ RISC-V-Creative-Board
 
 ### How to run the LiteOS RISC-V port:
 Open SoftConsole IDE and import the project miv-rv32im-wifi-udp-liteos into SoftConsole. 
-Build the project and DownLoad it from SoftConsole to RISC-V-Creative-Board using FlashPro Debugger.
+Build the project and download it from SoftConsole to RISC-V-Creative-Board using FlashPro Debugger.
 
 The miv-rv32im-wifi-udp-liteos is a self contained project where only those LiteOS components 
 which are related to RISC-V port are part of the project.
