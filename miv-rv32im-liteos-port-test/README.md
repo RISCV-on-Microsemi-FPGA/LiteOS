@@ -31,7 +31,7 @@ SmartFusion2-Advanced-Dev-Kit
 
 ### How to run the LiteOS RISC-V port:
 Open SoftConsole IDE and import the project miv-rv32im-liteos-port-test into SoftConsole. 
-Build the project and DownLoad it from SoftConsole to SmartFusion2-Advanced-Dev-Kit using FlashPro Debugger.
+Build the project and download it from SoftConsole to SmartFusion2-Advanced-Dev-Kit using FlashPro Debugger.
 
 The miv-rv32im-liteos-port-test is a self contained project where only those LiteOS components 
 which are related to RISC-V port are part of the project.
@@ -64,8 +64,8 @@ The preprocessor macro LOS_M2S150_RV32 must be defined for this project.
         example\api\los_inspect_entry.c
 
 ### LiteOS Configurations
-You must configure the LiteOS as per your applications need. Please read and modify kernel\config\los_config.h
-E.g. You must set OS_SYS_CLOCK parameter in los_config.h according to the hardware platform 
+You must configure the LiteOS as per your applications need. Please read and modify kernel\config\los_config.h. 
+For example, you must set OS_SYS_CLOCK parameter in los_config.h according to the hardware platform 
 design that you are using. 
 
 The RISC-V creative board design uses 66Mhz processor clock. The PolarFire Eval Kit design uses 50Mhz processor clock. The SmartFusion2 Adv. Development kit design uses 83Mhz processor clock.
